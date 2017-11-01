@@ -11,10 +11,11 @@ RUN apt-get update && apt-get install -y \
 
 
 # configure cron to run every 15min
-RUN echo "SHELL=/bin/bash" >> /etc/cron.d/nextcloud-cron \
-    && echo "PATH=/usr/local/bin:/usr/bin:/bin" >> /etc/cron.d/nextcloud-cron \
-    && echo "# m h	dom	mon	dow user		command" >> /etc/cron.d/nextcloud-cron \
-    && echo "*/15	*	*	*	*	www-data	php -f /var/www/html/cron.php > /dev/null 2>&1" >> /etc/cron.d/nextcloud-cron
+RUN echo "SHELL=/bin/bash" >> /etc/cron.d/nextcloud_cron \
+    && echo "PATH=/usr/local/bin:/usr/bin:/bin" >> /etc/cron.d/nextcloud_cron \
+    && echo "# m h	dom	mon	dow user		command" >> /etc/cron.d/nextcloud_cron \
+    && echo "*/15	*	*	*	*	www-data	php -f /var/www/html/cron.php > /dev/null 2>&1" >> /etc/cron.d/nextcloud_cron \
+    && echo "" >> /etc/cron.d/nextcloud_cron
 
 # install php5-imap
 RUN docker-php-ext-configure imap --with-kerberos --with-imap-ssl \
