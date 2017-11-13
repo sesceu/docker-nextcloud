@@ -14,7 +14,7 @@ RUN apt-get update && apt-get install -y \
 RUN echo "SHELL=/bin/bash" >> /etc/cron.d/nextcloud_cron \
     && echo "PATH=/usr/local/bin:/usr/bin:/bin" >> /etc/cron.d/nextcloud_cron \
     && echo "# m h	dom	mon	dow user		command" >> /etc/cron.d/nextcloud_cron \
-    && echo "*/15	*	*	*	*	www-data	php -f /var/www/html/cron.php > /dev/null 2>&1" >> /etc/cron.d/nextcloud_cron \
+    && echo "*/15	*	*	*	*	www-data	/usr/local/bin/php -f /var/www/html/cron.php > /dev/null 2>&1" >> /etc/cron.d/nextcloud_cron \
     && echo "" >> /etc/cron.d/nextcloud_cron
 
 # install php5-imap
