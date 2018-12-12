@@ -1,4 +1,4 @@
-FROM nextcloud:13
+FROM nextcloud:15
 MAINTAINER Sebastian Schneider <mail@sesc.eu>
 
 # install cron
